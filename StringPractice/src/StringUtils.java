@@ -8,8 +8,12 @@ public class StringUtils {
     }
 
     public String myReverseWords(String input) {
+        if(input== null || input.isEmpty()){
+            return input;
+        }
+
         StringBuilder sbSentence = new StringBuilder();
-        String[] words = input.split("\\s");
+        String[] words = input.split(" ");
         for (int i = 0; i < words.length; i++) {
             sbSentence.append(myReverse(words[i]));
             sbSentence.append(" ");
