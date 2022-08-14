@@ -9,7 +9,9 @@ public class Main {
         linkedListRoot.insert(4);
         linkedListRoot.insert(5);
         linkedListRoot.display();
-        linkedListRoot.deleteKthNode(2);
+        // linkedListRoot.deleteKthNode(2);
+
+        linkedListRoot.deleteNotLastNode(linkedListRoot.head);
         linkedListRoot.display();
         //create a circular LinkedList
         //linkedListRoot.root.nextNode.nextNode.nextNode.nextNode.nextNode.nextNode = linkedListRoot.root.nextNode.nextNode.nextNode;

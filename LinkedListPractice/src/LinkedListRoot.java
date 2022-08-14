@@ -18,6 +18,20 @@ public class LinkedListRoot {
         }
     }
 
+    public void deleteNotLastNode(Node node) {
+        if (node == null) {
+            System.out.println("Node is null");
+            return;
+        }
+
+        if (node.nextNode == null) {
+            System.out.println("Will not work for last Node");
+            return;
+        }
+        node.data = node.nextNode.data;
+        node.nextNode = node.nextNode.nextNode;
+    }
+
 
     public void delete(int data) {
         Node currentNode = this.head;
@@ -96,7 +110,7 @@ public class LinkedListRoot {
         }
 
         //move up slow pointer to the diff
-        int diff = fastIndex/2 - k;
+        int diff = fastIndex / 2 - k;
 
         System.out.println("diff is " + diff);
         //diff-1 since diff is the index that we want tp delete
