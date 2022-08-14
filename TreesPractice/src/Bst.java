@@ -233,4 +233,16 @@ public class Bst {
         //will not be called
         return null;
     }
+
+    public Node invertBinaryTree() {
+        return invertNode(this.root);
+    }
+
+    private Node invertNode(Node node) {
+        if (node == null) return null;
+        Node temp =  invertNode(node.leftNode);;
+        node.leftNode = invertNode(node.rightNode);
+        node.rightNode = temp;
+        return node;
+    }
 }
