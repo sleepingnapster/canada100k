@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ArrayUtil {
 
     public static void shiftArrayRight(int[] arr, int rotations) {
@@ -70,4 +72,53 @@ public class ArrayUtil {
     }
 
 
+    public int findLeastPeopleCostToFlyToCities(int[][] input) {
+
+        Queue<Person> diff = new PriorityQueue<>(new PeopleComparator());
+        for (int i = 0; i < input.length; i++) {
+            diff.add(new Person(Math.abs(input[i][0] - input[i][1]) * -1, input[i][0], input[i][1]));
+        }
+        int result = 0;
+        int city0 = 0;
+        int city1 = 0;
+        for (int i = 0; city0 <= diff.size() / 2 || city1 <= diff.size() / 2; i++) {
+            Person p = diff.poll();
+            if (p.city0 < p.city1) {
+                city0++;
+                result += p.city0;
+            } else {
+                city1++;
+                result += p.city1;
+            }
+        }
+
+        if (city0 <= input.length / 2) {
+            Person p = diff.poll();
+            result += p.city0;
+        } else if (city0 <= input.length / 2) {
+            Person p = diff.poll();
+            result += p.city1;
+        }
+
+
+        System.out.println(result);
+        return result;
+    }
+
+
+    public class PeopleComparator implements Comparator<Person> {
+
+
+        @Override
+        public int compare(Person o1, Person o2) {
+            return o1.diff - o2.diff;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return false;
+        }
+    }
+
 }
+
