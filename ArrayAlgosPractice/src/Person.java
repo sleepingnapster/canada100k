@@ -9,7 +9,6 @@ public class Person implements Comparable<Person> {
         this.city1 = city1;
     }
 
-
     @Override
     public int compareTo(Person o) {
         return -Math.abs(o.diff - this.diff);

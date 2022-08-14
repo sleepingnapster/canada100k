@@ -100,20 +100,14 @@ public class ArrayUtil {
             result += p.city1;
         }
 
-
-        System.out.println(result);
         return result;
     }
 
-
     public class PeopleComparator implements Comparator<Person> {
-
-
         @Override
         public int compare(Person o1, Person o2) {
             return o1.diff - o2.diff;
         }
-
         @Override
         public boolean equals(Object obj) {
             return false;
