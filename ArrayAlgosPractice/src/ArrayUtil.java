@@ -114,5 +114,17 @@ public class ArrayUtil {
         }
     }
 
+    public static Integer getLargestNumberFromArray(int[] input) {
+        PriorityQueue<String> t = new PriorityQueue<>(Collections.reverseOrder());
+        for (int a : input) {
+            t.add(Integer.toString(a));
+        }
+        StringBuilder sb = new StringBuilder();
+        for (String aa : t) {
+            sb.append(aa);
+        }
+        return Integer.parseInt(sb.toString());
+    }
+
 }
 

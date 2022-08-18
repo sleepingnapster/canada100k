@@ -69,6 +69,9 @@ public class Bst {
         //right
         preOrderTraversal(node.rightNode);
     }
+    public boolean isRoot(Node x) {
+        return this.root.data == x.data;
+    }
 
     private void postOrderTraversal(Node node) {
         if (node == null) {

@@ -8,9 +8,14 @@ public class Main {
 //        ArrayUtil.shiftAndPrint(arr, rotations, false);
 
 
-        int[][] cities = {{10,20},{30,200},{400,50},{30,20}};
+        int[][] cities = {{10, 20}, {30, 200}, {400, 50}, {30, 20}};
         ArrayUtil a = new ArrayUtil();
         a.findLeastPeopleCostToFlyToCities(cities);
+
+
+        int[] input = new int[]{3, 30, 34, 9, 3};
+        Integer result = ArrayUtil.getLargestNumberFromArray(input);
+        System.out.println(result);
     }
 
 
