@@ -5,9 +5,13 @@ import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
 
-        int[] input = new int[]{3, 30, 34, 9, 3};
-        Integer result = getLargestNumberFromArray(input);
-        System.out.println(result);
+//        int[] input = new int[]{3, 30, 34, 9, 3};
+//        Integer result = getLargestNumberFromArray(input);
+//        System.out.println(result);
+//
+
+        int a = -1;
+        System.out.println(Integer.toBinaryString(a));
     }
 
     public static Integer getLargestNumberFromArray(int[] input) {
