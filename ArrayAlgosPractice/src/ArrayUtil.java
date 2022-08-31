@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArrayUtil {
 
@@ -108,6 +109,7 @@ public class ArrayUtil {
         public int compare(Person o1, Person o2) {
             return o1.diff - o2.diff;
         }
+
         @Override
         public boolean equals(Object obj) {
             return false;
@@ -126,5 +128,53 @@ public class ArrayUtil {
         return Integer.parseInt(sb.toString());
     }
 
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        Set<Integer> s = new HashSet<>();
+        PriorityQueue<Integer> result = new PriorityQueue<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (s.contains(arr[i])) {
+                result.add(arr[i]);
+            } else {
+                s.add(arr[i]);
+            }
+        }
+        if (result.size() == 0) result.add(-1);
+        return new ArrayList<>(new ArrayList<>(result));
+    }
+
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
+        int lastPointer = 0;
+        int firstPointer = 0;
+        int sum = arr[0];
+        ArrayList<Integer> result = new ArrayList<>();
+        if (s == 0) {
+            result.add(-1);
+            return result;
+
+        }
+        if (sum == s) {
+            result.add(1);
+            result.add(1);
+            return result;
+        }
+
+        while (lastPointer < n - 1) {
+            if (arr[lastPointer + 1] + sum <= s) {
+                lastPointer++;
+                sum += arr[lastPointer];
+            } else {
+                sum -= arr[firstPointer];
+                firstPointer++;
+            }
+            if (sum == s) {
+                result.add(firstPointer + 1);
+                result.add(lastPointer + 1);
+                return result;
+            }
+        }
+        result.add(-1);
+        return result;
+    }
 }
 
